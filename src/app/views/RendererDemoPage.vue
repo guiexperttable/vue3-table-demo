@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 
 import { ComponentRendererWrapper, GuiexpertTable } from "@guiexpert/vue3-table";
-import { ColumnDefIf, TableApi, TableModelFactory } from "@guiexpert/table";
+import { ColumnDefIf, TableApi, TreeFactory } from "@guiexpert/table";
 import {
   applyBodyRenderer,
   createColumnDefs,
@@ -40,7 +40,7 @@ const rows: SimplePersonIf[] = createTableRows();
 const columnDefs: ColumnDefIf[] = createColumnDefs();
 applyBodyRenderer(columnDefs[2], new ComponentRendererWrapper(GenderRendererComponent, appContext));
 applyBodyRenderer(columnDefs[3], new ComponentRendererWrapper(EmailRendererComponent, appContext));
-const tableModel = TableModelFactory.buildByTypedRowsParam({
+const tableModel = TreeFactory.buildByTypedRowsParam({
   rows,
   columnDefs,
   tableOptions,
